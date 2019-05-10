@@ -15,6 +15,7 @@
 </head>
 <body class="font-sans">
     <div id="root" class="container my-10 mx-auto">
+        <a href="/visits">Visits</a>
         <h1 class="text-default">Hi, {{ $userdata->first_name }}</h1>
         <main>
             @isset($userdata->approved)
