@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ config('app.name', 'Snowman') }}</title>
+    <title>{{ config('app.name', 'UTM Landing') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -14,7 +14,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="root">
+    <div id="root" class="container my-10">
+        <h1 class="text-default">Hi, {{ $userdata->first_name }}</h1>
         
     </div>
 </body>

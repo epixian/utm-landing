@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'LandingsController@index');
+
+Route::get('/visits', function () {
+
+    return view('visits');
 });
