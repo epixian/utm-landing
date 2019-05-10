@@ -17,3 +17,8 @@ Route::get('/visits', function () {
 
     return view('visits');
 });
+
+Route::get('/create', function () {
+
+    return view('create');
+});
