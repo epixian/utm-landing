@@ -15,11 +15,11 @@ class CreateVisitsTable extends Migration
     {
         Schema::create('visits', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('utm_source');
-            $table->string('utm_medium');
-            $table->string('utm_campaign');
-            $table->string('utm_terms');
-            $table->string('utm_content');
+            $table->string('utm_source')->nullable();
+            $table->string('utm_medium')->nullable();
+            $table->string('utm_campaign')->nullable();
+            $table->string('utm_terms')->nullable();
+            $table->string('utm_content')->nullable();
             $table->timestamps();
         });
     }
