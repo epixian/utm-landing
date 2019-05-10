@@ -13,10 +13,16 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="root" class="container my-10">
+<body class="font-sans">
+    <div id="root" class="container my-10 mx-auto">
         <h1 class="text-default">Hi, {{ $userdata->first_name }}</h1>
-        
+        <main>
+            @isset($userdata->approved)
+            You have been pre-approved for a mortgage up to {{ $userdata->approved }}!
+            @else
+            You could be pre-approved!
+            @endisset
+        </main>
     </div>
 </body>
 </html>
