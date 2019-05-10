@@ -18,7 +18,7 @@ class CreateVisitsTable extends Migration
             $table->string('utm_source')->nullable();
             $table->string('utm_medium')->nullable();
             $table->string('utm_campaign')->nullable();
-            $table->string('utm_terms')->nullable();
+            $table->string('utm_term')->nullable();
             $table->string('utm_content')->nullable();
             $table->timestamps();
         });
