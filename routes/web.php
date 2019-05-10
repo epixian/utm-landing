@@ -14,8 +14,31 @@
 Route::get('/', 'LandingsController@index');
 
 Route::get('/visits', function () {
+    $visits = \App\Visit::all();
+    
+    return view('visits', compact('visits'));
+});
 
-    return view('visits');
+Route::get('/visits/json', function () {
+    return response()->json(\App\Visit::all());
+});
+
+Route::get('/visits/csv', function () {
+    $visits = \App\Visit::all()->toArray();
+
+    array_unshift($visits, array_keys($visits[0]));
+
+    $callback = function () use ($visits) {
+        foreach ($visits as $visit) {
+            foreach ($visit as $key => $val) {
+                echo str_replace('"', '\"', $val) . ',';
+            }
+            echo "\n";
+        }
+    };
+
+    return response()->streamDownload($callback, 'visits.csv');
+
 });
 
 Route::get('/create', function () {
