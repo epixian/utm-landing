@@ -10,6 +10,11 @@ class Visit extends Model
     
     public function clicks()
     {
+        return $this->hasMany(Click::class)->select(array('visit_id','target','created_at'));
+    }
+
+    public function fullClicks()
+    {
         return $this->hasMany(Click::class);
     }
 }

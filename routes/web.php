@@ -20,7 +20,7 @@ Route::get('/visits', function () {
 });
 
 Route::get('/visits/json', function () {
-    return response()->json(\App\Visit::all());
+    return response()->json(\App\Visit::with('clicks')->get());
 });
 
 Route::get('/visits/csv', function () {
@@ -45,3 +45,5 @@ Route::get('/create', function () {
 
     return view('create');
 });
+
+Route::post('/click', 'LandingsController@click');

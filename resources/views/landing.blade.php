@@ -23,6 +23,13 @@
             @else
             You could be pre-approved!
             @endisset
+            <form action="/click" method="POST">
+                @csrf
+                <input type="hidden" name="visit_id" value="{{ $visit_id }}">
+                <input type="hidden" name="utm_term" value="{{ base64_encode(json_encode($userdata)) }}">
+                <button type="submit" class="button rounded bg-blue mt-4 px-4 py-2 text-white">Get started</button>
+            </form>
+            
         </main>
     </div>
 </body>
