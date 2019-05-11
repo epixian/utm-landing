@@ -18,3 +18,4 @@ Homestead.json
 .env.testing
 public/css/app.css
 public/js/app.js
+.env.production
