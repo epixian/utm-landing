@@ -9,12 +9,17 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        input:focus {
+            outline: none;
+        }
+    </style>
 </head>
 <body class="font-sans">
-    <div id="root" class="container mx-auto my-10">
-        <input class="block border p-2 mb-4 rounded" id="first_name" @keyup="generateLink" v-model="first_name" placeholder="First name">
-        <input class="block border p-2 mb-4 rounded" id="last_name" @keyup="generateLink" v-model="last_name" placeholder="Last name">
-        <input class="block border p-2 mb-4 rounded" id="approved" @keyup="generateLink" v-model="approved" placeholder="Approved amount">
+    <div id="root" class="container w-1/2 mx-auto my-10">
+        <span class="block border inset p-2 mb-4 rounded"><input id="first_name" @keyup="generateLink" v-model="first_name" placeholder="First name"></span>
+        <span class="block border inset p-2 mb-4 rounded"><input id="last_name" @keyup="generateLink" v-model="last_name" placeholder="Last name"></span>
+        <span class="block border inset p-2 mb-4 rounded">$<input class="ml-2" id="approved" @keyup="generateLink" v-model="approved" placeholder="Approved amount"></span>
 
         <p><a :href="url"><span v-text="url"></span></a></p>
 
