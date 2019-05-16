@@ -45,6 +45,6 @@ class LandingsController extends Controller
             );
         }
 
-        return redirect('/create');
+        return view ('clicked');
     }
 }
