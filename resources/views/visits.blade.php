@@ -16,9 +16,27 @@
 <body class="font-sans">
     <div class="container mx-auto my-10">
         <a href="/create">Create a new visit</a>
-        <a href="/visits/json">View as JSON</a>
+        <a href="/visits/json">View as JSON (complete data)</a>
         <a href="/visits/csv">Download CSV</a>
-        <table>
+        <div class="my-4">
+            <div class="flex py-2 px-4 bg-grey font-bold text-sm">
+                <div class="w-24">First</div>
+                <div class="w-24">Last</div>
+                <div class="w-24">Approved</div>
+                <div class="flex-1">UTM Term</div>
+                <div class="w-12">Click(s)</div>
+            </div>
+            @foreach ($visits as $visit)
+            <div class="flex py-2 px-4 {{ $loop->even ? 'bg-grey-lighter' : '' }} text-xs">
+                <div class="w-24">{{ json_decode(base64_decode($visit->utm_term))->first_name }}</div>
+                <div class="w-24">{{ json_decode(base64_decode($visit->utm_term))->last_name }}</div>
+                <div class="w-24">{{ json_decode(base64_decode($visit->utm_term))->approved }}</div>
+                <div class="flex-1">{{ $visit->utm_term }}</div>
+                <div class="w-12">{{ $visit->clicks->count() }}</div>
+            </div>
+            @endforeach
+        </div>
+        <table class="text-sm">
             <thead>
                 <tr>
                     <td>ID</td>

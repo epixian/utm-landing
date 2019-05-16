@@ -17,8 +17,7 @@ use Faker\Generator as Faker;
 Route::get('/', 'LandingsController@index');
 
 Route::get('/visits', function () {
-    $visits = \App\Visit::all();
-    
+    $visits = \App\Visit::with('clicks')->get();
     return view('visits', compact('visits'));
 });
 
