@@ -1,5 +1,8 @@
 <?php
 
+use App\Visit;
+use Faker\Generator as Faker;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,8 +45,10 @@ Route::get('/visits/csv', function () {
 });
 
 Route::get('/create', function () {
+    $factoryLinks = factory('App\Person', 5)->make();
 
-    return view('create');
+    // dd($factoryLinks);
+    return view('create', compact('factoryLinks'));
 });
 
 Route::post('/click', 'LandingsController@click');
